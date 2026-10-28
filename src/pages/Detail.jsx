@@ -14,7 +14,7 @@ function Detail() {
   const [error, setError] = useState("");
   const [retryCount, setRetryCount] = useState(0);
 
-  // Pokemon ophalen uit PokéAPI
+  
   useEffect(() => {
     const controller = new AbortController();
 
@@ -51,7 +51,7 @@ function Detail() {
     return () => controller.abort();
   }, [id, retryCount]);
 
-  // Opnieuw proberen
+  
   function retryPokemon() {
     setPokemon(null);
     setError("");
@@ -88,7 +88,7 @@ function Detail() {
     return <p>Pokemon niet gevonden.</p>;
   }
 
-  // Pokemon afbeelding
+  
   const image =
     pokemon.sprites.other?.["official-artwork"]?.front_default ||
     pokemon.sprites.front_default;
@@ -102,7 +102,7 @@ function Detail() {
   return (
     <div className="detail-page">
 
-      {/* Back Button */}
+      {}
       <Link to="/list" className="detail-back">
         ← Back to Pokédex
       </Link>
@@ -135,7 +135,7 @@ function Detail() {
             ))}
           </div>
 
-          {/* Height and Weight */}
+          {}
           <div className="detail-info">
             <div>
               <span>Height</span>
@@ -149,7 +149,7 @@ function Detail() {
           </div>
         </section>
 
-        {/* Battle Statistics */}
+        {}
         <section className="detail-stat-card">
           <PokemonStats stats={pokemon.stats} />
 

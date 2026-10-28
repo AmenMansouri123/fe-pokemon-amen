@@ -105,7 +105,7 @@ function List() {
     return () => controller.abort();
   }, [selectedType, typeRetryCount]);
 
-  // Type wijzigen
+  
   function changeType(type) {
     setSelectedType(type);
     setTypeError("");

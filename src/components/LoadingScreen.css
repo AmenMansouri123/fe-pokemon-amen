@@ -1,0 +1,114 @@
+
+.loading-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 350px;
+  padding: 40px 20px;
+  text-align: center;
+
+  background: rgba(15, 23, 42, 0.65);
+  border: 1px solid rgba(167, 139, 250, 0.15);
+  border-radius: 20px;
+  backdrop-filter: blur(12px);
+}
+
+.loading-pokeball {
+  position: relative;
+  width: 85px;
+  height: 85px;
+  border: 5px solid #111827;
+  border-radius: 50%;
+
+  background: linear-gradient(
+    to bottom,
+    #ef4444 0%,
+    #ef4444 45%,
+    #111827 45%,
+    #111827 55%,
+    #f8fafc 55%,
+    #f8fafc 100%
+  );
+
+  box-shadow: 0 0 35px rgba(124, 58, 237, 0.3);
+  animation: pokeballShake 1.5s ease-in-out infinite;
+}
+
+.loading-pokeball::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  width: 25px;
+  height: 25px;
+  transform: translate(-50%, -50%);
+
+  background: white;
+  border: 5px solid #111827;
+  border-radius: 50%;
+}
+
+@keyframes pokeballShake {
+  0%, 100% {
+    transform: rotate(-20deg);
+  }
+
+  50% {
+    transform: rotate(20deg);
+  }
+}
+
+.loading-screen h2 {
+  margin-top: 25px;
+  color: #fff;
+  font-size: 21px;
+}
+
+.loading-screen p {
+  color: #94a3b8;
+  font-size: 14px;
+}
+
+.loading-dots {
+  display: flex;
+  gap: 8px;
+  margin-top: 15px;
+}
+
+.loading-dots span {
+  width: 9px;
+  height: 9px;
+  background: #a78bfa;
+  border-radius: 50%;
+  animation: loadingPulse 1s ease-in-out infinite alternate;
+}
+
+.loading-dots span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.loading-dots span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes loadingPulse {
+  from {
+    opacity: 0.3;
+    transform: translateY(0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(-8px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .loading-pokeball,
+  .loading-dots span {
+    animation: none;
+  }
+}
